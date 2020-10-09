@@ -34,7 +34,17 @@ class Post(models.Model):
         """
         return self.title
 
+    def get_absolute_url(self):
+        """
+            Returns absolute path
+        """
+        from django.urls import reverse
+        return reverse("post_detail", kwargs={"slug": str(self.slug)})
+
 class Comment(models.Model):
+    """
+        Comment data model
+    """
     post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
@@ -43,7 +53,13 @@ class Comment(models.Model):
     active = models.BooleanField(default=False)
 
     class Meta:
+        """
+            ordering: base on created_on field, -* means decreasing order
+        """
         ordering = ['created_on']
 
     def __str__(self):
+        """
+            Repr of Comment
+        """
         return 'Comment {} by {}'.format(self.body, self.name)
