@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'tinymce'
+    'tinymce',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,6 @@ STATIC_URL = '/static/'
 TINYMCE_DEFAULT_CONFIG = {
 'plugins': "table,codesample",
 }
+
+# Crispy Form
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
