@@ -137,7 +137,7 @@ STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 
 ## TinyMCE
 TINYMCE_DEFAULT_CONFIG = {
-'plugins': "table,codesample",
+'plugins': "table,codesample,image",
 }
 
 # Crispy Form
